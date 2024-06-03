@@ -30,9 +30,9 @@ class StudentResource extends ModelResource
                 Text::make('ФИО', 'name')
                     ->required()
                     ->showOnExport(),
-                Text::make('Контакты', 'contacts'),
-                BelongsTo::make('Компания', 'company', 'name', new CompanyResource),
-                BelongsTo::make('Группа', 'group', 'uuID', new GroupResource),
+                Text::make('Контакты', 'contacts')->required(),
+                BelongsTo::make('Компания', 'company', 'name', new CompanyResource)->required(),
+                BelongsTo::make('Группа', 'group', 'uuID', new GroupResource)->required(),
             ]),
         ];
     }

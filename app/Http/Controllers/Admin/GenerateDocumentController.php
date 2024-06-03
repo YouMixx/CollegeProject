@@ -50,7 +50,7 @@ class GenerateDocumentController extends Controller
             $this->generateDocumentService->generateDocumentCompany($company);
             MoonShineUI::toast('Договор успешно сформирован!', 'success');
         } catch (\Throwable $th) {
-            MoonShineUI::toast('Произошла ошибка при формировании Договор!', 'error');
+            MoonShineUI::toast('Произошла ошибка при формировании договора!', 'error');
         }
 
         return back();

@@ -28,19 +28,20 @@ class CompanyResource extends ModelResource
         return [
             Block::make([
                 ID::make()->sortable(),
-                Text::make('Наименование', 'name'),
+                Text::make('Наименование', 'name')->required(),
                 Text::make('Внутреннее описание', 'description')->hideOnIndex(),
-                Text::make('Директор компании', 'director'),
-                Text::make('ИНН', 'inn'),
-                Text::make('КПП', 'kpp')->hideOnIndex(),
-                Text::make('ОРГН', 'ogrn')->hideOnIndex(),
-                Text::make('Телефон', 'phone')->hideOnIndex(),
-                Text::make('Почта', 'email')->hideOnIndex(),
+                Text::make('Директор компании', 'director')->required(),
+                Text::make('ИНН', 'inn')->required(),
+                Text::make('КПП', 'kpp')->required()->hideOnIndex(),
+                Text::make('ОРГН', 'ogrn')->required()->hideOnIndex(),
+                Text::make('Телефон', 'phone')->required()->hideOnIndex(),
+                Text::make('Почта', 'email')->required()->hideOnIndex(),
                 Select::make('Тип', 'type')
                     ->options([
                         'individual' => 'Индивидуальный предприниматель',
                         'ooo' => 'Общество с ограниченной ответственностью',
-                    ]),
+                    ])
+                    ->required(),
                 HasMany::make('Обучающиеся', 'students', 'name', new StudentResource)
                     ->hideOnIndex(),
             ]),

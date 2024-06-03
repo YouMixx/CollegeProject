@@ -27,8 +27,8 @@ class CourseResource extends ModelResource
                 Text::make('Название', 'name')
                     ->required()
                     ->showOnExport(),
-                Text::make('Описание', 'description'),
-                Number::make('Длительность (академ. час)', 'duration'),
+                Text::make('Описание', 'description')->required(),
+                Number::make('Длительность (академ. час)', 'duration')->required(),
             ]),
         ];
     }
