@@ -36,7 +36,7 @@ class GroupResource extends ModelResource
                         'completed' => 'Завершен',
                         'progress' => 'В процессе',
                     ]),
-                HasMany::make('Обучающиеся', 'students', 'fio', new StudentResource)
+                HasMany::make('Обучающиеся', 'students', 'name', new StudentResource)
                     ->hideOnIndex(),
             ]),
         ];

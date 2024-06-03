@@ -41,7 +41,7 @@ class CompanyResource extends ModelResource
                         'individual' => 'Индивидуальный предприниматель',
                         'ooo' => 'Общество с ограниченной ответственностью',
                     ]),
-                HasMany::make('Обучающиеся', 'students', 'fio', new StudentResource)
+                HasMany::make('Обучающиеся', 'students', 'name', new StudentResource)
                     ->hideOnIndex(),
             ]),
         ];
