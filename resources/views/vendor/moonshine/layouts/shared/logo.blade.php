@@ -1,0 +1,1 @@
+<h3 style="color: #c6bfbf">Панель</h3>

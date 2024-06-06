@@ -29,6 +29,6 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         </a>
                     HTML),
             ])->customAttributes(['class' => 'layout-page']),
-        ]);
+        ])->bodyClass('theme-minimalistic');
     }
 }

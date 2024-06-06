@@ -14,8 +14,8 @@ return [
     'namespace' => 'App\MoonShine',
 
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
-    'logo' => env('MOONSHINE_LOGO'),
-    'logo_small' => env('MOONSHINE_LOGO_SMALL'),
+    'logo' => '/',
+    'logo_small' => '/',
 
     'route' => [
         'domain' => env('MOONSHINE_URL', ''),
@@ -30,7 +30,7 @@ return [
 
     'use_migrations' => true,
     'use_notifications' => true,
-    'use_theme_switcher' => true,
+    'use_theme_switcher' => false,
 
     'layout' => MoonShineLayout::class,
 
@@ -50,8 +50,8 @@ return [
     ],
 
     'model_resources' => [
-        'default_with_import' => true,
-        'default_with_export' => true,
+        'default_with_import' => false,
+        'default_with_export' => false,
     ],
 
     'auth' => [
@@ -78,10 +78,8 @@ return [
         ],
         'pipelines' => [],
     ],
-    'locales' => [
-        'en',
-        'ru',
-    ],
+
+    'locales' => [],
 
     'global_search' => [
         // User::class
