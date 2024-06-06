@@ -1,23 +1,24 @@
 <?php
 
 use App\Models\User;
+use App\MoonShine\MoonShineLayout;
 use MoonShine\Exceptions\MoonShineNotFoundException;
 use MoonShine\Forms\LoginForm;
 use MoonShine\Http\Middleware\Authenticate;
 use MoonShine\Http\Middleware\SecurityHeadersMiddleware;
 use MoonShine\Models\MoonshineUser;
-use App\MoonShine\MoonShineLayout;
 use MoonShine\Pages\ProfilePage;
 
 return [
     'dir' => 'app/MoonShine',
     'namespace' => 'App\MoonShine',
 
-    'title' => env('MOONSHINE_TITLE', 'автоматизированную систему управлением БД'),
+    'title' => env('MOONSHINE_TITLE', 'MoonShine'),
     'logo' => env('MOONSHINE_LOGO'),
     'logo_small' => env('MOONSHINE_LOGO_SMALL'),
 
     'route' => [
+        'domain' => env('MOONSHINE_URL', ''),
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'),
         'single_page_prefix' => 'page',
         'index' => 'moonshine.index',
@@ -34,6 +35,10 @@ return [
     'layout' => MoonShineLayout::class,
 
     'disk' => 'public',
+
+    'disk_options' => [],
+
+    'cache' => 'file',
 
     'forms' => [
         'login' => LoginForm::class
@@ -71,9 +76,15 @@ return [
                 'model' => User::class,
             ],
         ],
+        'pipelines' => [],
     ],
     'locales' => [
+        'en',
         'ru',
+    ],
+
+    'global_search' => [
+        // User::class
     ],
 
     'tinymce' => [
