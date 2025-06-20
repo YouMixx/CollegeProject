@@ -27,6 +27,8 @@ class GenerateDocumentController extends Controller
             MoonShineUI::toast('Сертификат успешно сформирован!', 'success');
         } catch (\Throwable $th) {
             MoonShineUI::toast('Произошла ошибка при формировании сертификата!', 'error');
+
+            report($th);
         }
 
         return back();
@@ -51,6 +53,8 @@ class GenerateDocumentController extends Controller
             MoonShineUI::toast('Договор успешно сформирован!', 'success');
         } catch (\Throwable $th) {
             MoonShineUI::toast('Произошла ошибка при формировании договора!', 'error');
+
+            report($th);
         }
 
         return back();

@@ -51,7 +51,7 @@ class GenerateDocumentService
 
         $templatePath = Storage::disk('public')->path('documentCompany.docx');
         $templateProcessor = new TemplateProcessor($templatePath);
-        $templateProcessor->setValue('НомерДоговора', time() / 1000);
+        $templateProcessor->setValue('НомерДоговора', round(time() / 1000));
         $templateProcessor->setValue('Число', $day);
         $templateProcessor->setValue('МесяцГод', $monthYear);
         $templateProcessor->setValue('Директор', $company->director);
