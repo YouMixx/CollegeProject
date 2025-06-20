@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine;
 
-use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Sidebar};
+use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Search, Sidebar};
 use MoonShine\Contracts\MoonShineLayoutContract;
 
 final class MoonShineLayout implements MoonShineLayoutContract
@@ -17,7 +17,9 @@ final class MoonShineLayout implements MoonShineLayoutContract
             ]),
             LayoutBlock::make([
                 Flash::make(),
-                Header::make(),
+                Header::make([
+                    Search::make(),
+                ]),
                 Content::make(),
                 Footer::make()->copyright(fn (): string => <<<'HTML'
                         &copy; 2023-2024 Made with ❤️ by
