@@ -48,6 +48,11 @@ class CompanyResource extends ModelResource
         ];
     }
 
+    public function search(): array
+    {
+        return ['id', 'name', 'description', 'director', 'inn', 'kpp', 'ogrn', 'phone', 'email'];
+    }
+
     public function rules(Model $item): array
     {
         return [];
@@ -58,15 +63,15 @@ class CompanyResource extends ModelResource
         return [
             ActionButton::make(
                 'Сформировать договор',
-                fn ($item) => '/document-company/generate/' . $item->id,
+                fn($item) => '/document-company/generate/' . $item->id,
             )
-                ->canSee(fn ($item) => !$this->hasDocument($item)),
+                ->canSee(fn($item) => !$this->hasDocument($item)),
 
             ActionButton::make(
                 'Открыть договор',
-                fn ($item) => '/document-company/view/' . $item->id,
+                fn($item) => '/document-company/view/' . $item->id,
             )
-                ->canSee(fn ($item) => $this->hasDocument($item))
+                ->canSee(fn($item) => $this->hasDocument($item))
                 ->blank(),
         ];
     }

@@ -33,6 +33,11 @@ class CourseResource extends ModelResource
         ];
     }
 
+    public function search(): array
+    {
+        return ['id', 'name'];
+    }
+
     public function rules(Model $item): array
     {
         return [];

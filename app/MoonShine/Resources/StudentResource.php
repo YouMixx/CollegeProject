@@ -37,6 +37,11 @@ class StudentResource extends ModelResource
         ];
     }
 
+    public function search(): array
+    {
+        return ['id', 'name', 'contacts'];
+    }
+
     public function rules(Model $item): array
     {
         return [];

@@ -44,6 +44,11 @@ class GroupResource extends ModelResource
         ];
     }
 
+    public function search(): array
+    {
+        return ['id', 'uuID'];
+    }
+
     public function rules(Model $item): array
     {
         return [];
